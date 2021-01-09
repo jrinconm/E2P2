@@ -19,15 +19,7 @@
 			</div>
 			<div class="col-4">
 				<div class="row m-2">
-					<div v-for="poder in poderes">
-						<button @click="muestratipo(poder)" type="button" class="btn btn-primary">{{ poder }}</button>					
-					</div>			
-					<button @click="muestraAdulto(true)" type="button" class="btn btn-primary">Adulto</button>					
-					<button @click="muestraAdulto(false)" type="button" class="btn btn-primary">Menor de edad</button>					
-					<button @click="muestraTodos()" type="button" class="btn btn-primary">Mostrar todos</button>					
-				</div>
-				<div class="row m-2">
-					<table v-if="personajeActivo" class="table table-bordered">
+					<table v-show="personajeActivo" class="table table-bordered">
 						<thead>
 						  <tr>
 							<th scope="col" >Nombre</th>
@@ -42,8 +34,16 @@
 							<td>{{personaje.tipo}}</td>
 						  </tr>
 						</tbody>
+						<p v-if="mensaje"> {{ mensaje }} </p>
 					  </table>
 				</div>
+				<div class="row m-2">					
+						<button v-for="poder in poderes" @click="muestratipo(poder)" type="button" class="btn btn-primary btn-block p-1 m-2">{{ poder }}</button>								
+					<button @click="muestraAdulto(true)" type="button" class="btn btn-primary btn-block p-2 m-2">Adulto</button>					
+					<button @click="muestraAdulto(false)" type="button" class="btn btn-primary btn-block p-2 m-2">Menor de edad</button>					
+					<button @click="muestraTodos()" type="button" class="btn btn-primary btn-block p-2 m-2">Mostrar todos</button>					
+				</div>
+
 
 			</div>
 		</div>

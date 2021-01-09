@@ -12,7 +12,8 @@ let app = new Vue({
 	// Indicamos el ID del Div que contiene la APP Vue
 	el: '#app',	
 	data: {
-		personajeActivo : false,		
+		personajeActivo : false,
+		mensaje : "",		
 		personajes: [
 		{
 			id:1,
@@ -88,8 +89,12 @@ let app = new Vue({
 	},
 	methods: {
 		actualizainfo: function(objetivo){
-			this.personajeActivo = true;
-			this.personaje = this.personajes[objetivo-1]
+			if(objetivo){
+				this.personajeActivo = true;
+				this.personaje = this.personajes[objetivo-1]
+			} else {
+				this.personajeActivo = false;
+			}
 		},
 		tipos: function () {
 			let poderes=app.personajes.map(item => item.tipo).filter((value, index, self) => self.indexOf(value) === index)
@@ -100,6 +105,7 @@ let app = new Vue({
 				if(element.tipo!==tipo){
 					element.visible=false;
 				}
+				this.mensaje = "Mostrando personajes de tipo "+tipo;
 			});
 		},
 		muestraAdulto: function(edad){
@@ -108,12 +114,14 @@ let app = new Vue({
 				if(element.adulto!==edad){
 					element.visible=false;
 				}
+				this.mensaje = "Mostrando personajes " + (edad ? "adultos" : "menores");
 			});
 		},
 		muestraTodos: function(){
 			this.personajes.forEach(element => {
 				element.visible=true;
 			});
+			this.mensaje="";
 		},	
 	}
 });
