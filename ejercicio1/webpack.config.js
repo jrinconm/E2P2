@@ -47,6 +47,7 @@ module.exports = {
             [
                 { from: 'src/html', to: './', force: true }, // Cogen la direccion destino de contentBase
                 { from: 'src/css', to: './', force: true },
+                { from: 'src/img', to: './img', force: true },
             ]
         ),
         new VueLoaderPlugin()
