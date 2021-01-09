@@ -16,7 +16,7 @@ module.exports = {
         hot: true,
         contentBase: path.resolve(__dirname, 'dist'),
         watchContentBase: true, // Mira cambios en /dist
-        writeToDisk: true,
+        writeToDisk: false,
     },
     module: {
       rules: [
