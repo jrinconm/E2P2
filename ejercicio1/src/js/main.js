@@ -12,8 +12,10 @@ let app = new Vue({
 	// Indicamos el ID del Div que contiene la APP Vue
 	el: '#app',	
 	data: {
+		// Variable para mostrar u ocultar texto
 		personajeActivo : false,
-		mensaje : "",		
+		mensaje : "",
+		// Personajes de HunterXHunter		
 		personajes: [
 		{
 			id:1,
@@ -82,12 +84,14 @@ let app = new Vue({
 		],		
 		personaje: {},
 	},
+	// Para sacar botones segun tipo
 	computed: {
 		poderes: function() {
 			return this.personajes.map(item => item.tipo).filter((value, index, self) => self.indexOf(value) === index)
 		} 
 	},
 	methods: {
+		// Muestra la información del personaje
 		actualizainfo: function(objetivo){
 			if(objetivo){
 				this.personajeActivo = true;
@@ -96,9 +100,7 @@ let app = new Vue({
 				this.personajeActivo = false;
 			}
 		},
-		tipos: function () {
-			let poderes=app.personajes.map(item => item.tipo).filter((value, index, self) => self.indexOf(value) === index)
-		},
+		// Muestra solo los personajes del tipo enviado
 		muestratipo: function(tipo){
 			this.personajes.forEach(element => {
 				element.visible=true;
@@ -108,6 +110,7 @@ let app = new Vue({
 				this.mensaje = "Mostrando personajes de tipo "+tipo;
 			});
 		},
+		// Muestra solo los personajes de la edad enviada
 		muestraAdulto: function(edad){
 			this.personajes.forEach(element => {
 				element.visible=true;
@@ -117,6 +120,7 @@ let app = new Vue({
 				this.mensaje = "Mostrando personajes " + (edad ? "adultos" : "menores");
 			});
 		},
+		// Marca todos los personajes como visibles
 		muestraTodos: function(){
 			this.personajes.forEach(element => {
 				element.visible=true;

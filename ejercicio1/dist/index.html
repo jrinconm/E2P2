@@ -15,9 +15,11 @@
 	<div class="container" id="app">
 		<div class="row">
 			<div class="col-8">
+				<!-- Creo las tarjetas en 2/3 de pantalla-->
 				<componente-tarjeta :personajes="personajes" @pasando="actualizainfo"/>
 			</div>
 			<div class="col-4">
+				<!-- Creo el texto y los botones en el tercio restante-->
 				<div class="row m-2">
 					<table v-show="personajeActivo" class="table table-bordered">
 						<thead>
@@ -37,14 +39,14 @@
 						<p v-if="mensaje"> {{ mensaje }} </p>
 					  </table>
 				</div>
-				<div class="row m-2">					
-						<button v-for="poder in poderes" @click="muestratipo(poder)" type="button" class="btn btn-primary btn-block p-1 m-2">{{ poder }}</button>								
+				<div class="row m-2">	
+					<!-- Me ahorro poner botones para los poderes-->				
+					<button v-for="poder in poderes" @click="muestratipo(poder)" type="button" class="btn btn-primary btn-block p-1 m-2">{{ poder }}</button>								
+					<!-- Mas botones para adulto/menor y mostrar todo-->
 					<button @click="muestraAdulto(true)" type="button" class="btn btn-primary btn-block p-2 m-2">Adulto</button>					
 					<button @click="muestraAdulto(false)" type="button" class="btn btn-primary btn-block p-2 m-2">Menor de edad</button>					
 					<button @click="muestraTodos()" type="button" class="btn btn-primary btn-block p-2 m-2">Mostrar todos</button>					
 				</div>
-
-
 			</div>
 		</div>
 	</div>
