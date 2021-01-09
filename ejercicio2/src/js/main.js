@@ -10,10 +10,20 @@ let app = new Vue({
 	// Indicamos el ID del Div que contiene la APP Vue
 	el: '#app',	
 	data: {
+		colores: ["red","green","blue","yellow","purple","white"],
+		color: undefined,
 	},
 	// Para sacar botones segun tipo
-	computed: {
+	computed: {	
+
 	},
-	methods: {	
+	methods: {
+		eligeColor: function(colorElegido){
+			this.color=colorElegido;
+			console.log(this.color);
+		}	,
+		fila: function(numero)	{
+			return "fila" + numero;
+		}
 	}
 });
