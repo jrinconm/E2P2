@@ -1,7 +1,7 @@
 <!-- Creo el template-->
 <template>
         <!-- Creo un div de la lista ya filtrada -->
-        <div @mouseleave.stop="fuera" @mouseover="dentro"  class="celda" :class="tipo">  
+        <div @click.stop="comido" @mouseleave.stop="fuera" @mouseover="dentro"  class="celda" :class="tipo">  
         <p v-show="mostrar">¡MMMM...!</p>
         </div>
     <!-- Cierro la sección template -->
@@ -19,12 +19,19 @@ export default {
     props: [ 'data' ],
     methods: {
         dentro: function(){
-            this.mostrar=true;
-            this.tipo="seleccionado";
+            if(!this.mostrar){
+                this.tipo="seleccionado";
+            }
         },
         fuera: function(){
-            this.mostrar=false;
-            this.tipo="normal";
+            if(!this.mostrar){
+                this.tipo="normal";
+            }            
+        },
+        comido: function(){
+            this.mostrar=true;
+            this.tipo="comido";
+
         },
 	},
 }

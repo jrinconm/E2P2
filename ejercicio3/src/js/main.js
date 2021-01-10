@@ -14,6 +14,10 @@ let app = new Vue({
 		color: "normal"
 	},
 	methods: {
-
+		comerfila: function (){
+			//Vue.set(this.$refs.this[objeto][0],"tipo","comido");
+			//Vue.set(this.$refs.objeto[0],"mostrar",true);
+			//console.log(this.$refs.celda11[0].tipo);
+		}
 	}
 });
