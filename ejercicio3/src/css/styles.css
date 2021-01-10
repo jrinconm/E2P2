@@ -1,0 +1,46 @@
+body {
+    background-color: darkgrey;
+}
+h1, p {
+    text-align: center;
+}
+.fila {
+    margin-top: 2px;
+    padding: 0px;
+    height: 10px;
+}
+.celda {
+    display: inline-block;
+    width:10px;
+    height: 10px;
+    background-color: white;
+    margin: 0px 1px;
+    padding: 0px;
+}
+.color {
+    width: 75px;
+    height: 40px;
+    display: inline-block;
+    margin: 0px 20px;
+}
+.red {
+    background-color: red;
+}
+.green {
+    background-color: green;
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
+.purple {
+    background-color: purple;
+}
+.white {
+    background-color: white;
+}
+.black {
+    background-color: black;
+}
