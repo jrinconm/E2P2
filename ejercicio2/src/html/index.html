@@ -23,7 +23,7 @@
 	<p>Color de pincel seleccionado: <span id="estado"> {{ color ? color : "SIN SELECCIONAR" }}</span></p>
 	<div id="tablero">
 		<div v-for="(contenido,indice) in matriz" class="fila">
-			<div @mouseover.stop="actualizaColor($event,indice,posX)" :class=miracolor(indice,posX) v-for="(celda,posX) in contenido.fila" class="celda"> 
+			<div @mouseover.stop="actualizaColor($event,indice,posX)" :class=matriz[indice].fila[posX].color v-for="(celda,posX) in contenido.fila" class="celda"> 
 			</div>
 			<!-- <componente-celda v-for="j in 60" :key="j" :datos="color"></componente-celda> -->
 			<!-- <div @mouseover.stop="actualizaColor($event)" v-for="j in 60" class='celda'>
