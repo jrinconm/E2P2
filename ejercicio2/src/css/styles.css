@@ -30,26 +30,26 @@ h1, p {
     margin: 0px 20px;
 }
 
-#red {
+.red {
     background-color: red;
 }
 
-#green {
+.green {
     background-color: green;
 }
 
-#blue {
+.blue {
     background-color: blue;
 }
 
-#yellow {
+.yellow {
     background-color: yellow;
 }
 
-#purple {
+.purple {
     background-color: purple;
 }
 
-#white {
+.white {
     background-color: white;
 }
