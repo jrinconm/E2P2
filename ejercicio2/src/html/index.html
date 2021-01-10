@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<title>Misión 6, Ejercicio 2</title>
@@ -21,13 +20,10 @@
 			</div>
 	<button @click.prevent.stop="borrar" id="borrar">Borrar el panel</button>
 	<p>Color de pincel seleccionado: <span id="estado"> {{ color ? color : "SIN SELECCIONAR" }}</span></p>
-	<div id="tablero">
-		<div v-for="(contenido,indice) in matriz" class="fila">
-			<div @mouseover.stop="actualizaColor($event,indice,posX)" :class=matriz[indice].fila[posX].color v-for="(celda,posX) in contenido.fila" class="celda"> 
+	<div id="tablero"> 
+		<div v-for="(contenido,indice) in matriz" :key=indice class="fila">
+			<div @mouseover.stop="actualizaColor($event,indice,posX)" :class=celda v-for="(celda,posX) in contenido" class="celda"> 
 			</div>
-			<!-- <componente-celda v-for="j in 60" :key="j" :datos="color"></componente-celda> -->
-			<!-- <div @mouseover.stop="actualizaColor($event)" v-for="j in 60" class='celda'>
-			</div> -->
 		</div>
 	</div>
 	</div>
@@ -35,15 +31,11 @@
   Permite depuración con https://github.com/vuejs/vue-devtools
   NOTA: También puedes decargarla en local y enlazarla -->
 	<script src="https://vuejs.org/js/vue.js"></script>
-
-
 	<!-- Biblioteca Vue 2 modo producción. Quitar modo desarrollo y descomentar esta en produccion
   NOTA: si tu aplicación es offline, puedes descargarla e incluirla. Si no, es recomendable usar CDN
   porque sus archivos estan cacheados por los ISP y navegadores, por lo cual su acceso es más rápido
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
    -->
-
-
 	<!-- Adjuntamos nuestro Javascript de nuestra aplicación Vue 2 -->
 	<script src="main.js"></script>
 </body>
