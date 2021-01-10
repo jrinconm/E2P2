@@ -15,7 +15,6 @@
 	<button @click.prevent.stop="comerfila">Comer  fila</button>
 	<!-- Boton que lanza la funcion negro para poner todo en negro--> 
 	<button @click.prevent.stop="comercolumna">Comer  columna</button>
-	
 	<div id="tablero"> 
 		<div v-for="i in 5" class="fila" :key="i">
 			<componente-onza v-for="j in 7" :key="j" :data=color></componente-onza>

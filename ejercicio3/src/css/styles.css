@@ -1,46 +1,43 @@
 body {
     background-color: darkgrey;
+    
 }
 h1, p {
     text-align: center;
 }
+
+p {
+    font-size: 0.9rem;
+    margin:0;
+    padding: 0;
+    float: left;    
+}
+.tablero{
+    background:#442500;
+    border-radius: .1em;
+}
 .fila {
-    margin-top: 2px;
-    padding: 0px;
-    height: 10px;
+    margin-top: 30px;
+    height: 2rem;
 }
 .celda {
+    color: white;
     display: inline-block;
-    width:10px;
-    height: 10px;
-    background-color: white;
-    margin: 0px 1px;
-    padding: 0px;
+    width: 5rem;
+    height: 4rem;
+    background-image:   linear-gradient(to right, #9e6c4b 0, #7b543b 1px, transparent 1px), 
+                        linear-gradient(to bottom, #9e6c4b 0, #7b543b 1px, transparent 1px), 
+                        linear-gradient(to left, #b68666 1px, transparent 1px), 
+                        linear-gradient(to top, #b68666 1px, transparent 1px);
+    background-size: 10px 10px;
+    border: ridge 5px #583102;
 }
-.color {
-    width: 75px;
-    height: 40px;
-    display: inline-block;
-    margin: 0px 20px;
-}
-.red {
-    background-color: red;
-}
-.green {
-    background-color: green;
-}
-.blue {
-    background-color: blue;
-}
-.yellow {
-    background-color: yellow;
-}
-.purple {
-    background-color: purple;
-}
-.white {
-    background-color: white;
-}
-.black {
+.normal {
     background-color: black;
+}
+.seleccionado {
+    background-color: #9e6c4b;
+}
+.comido {
+    background-color: gray;
 }
