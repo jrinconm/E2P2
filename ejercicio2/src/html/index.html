@@ -19,11 +19,13 @@
 			<div id="colores">
 				<div v-for="color in colores" @click="eligeColor(color)" :class=color class="color"></div>
 			</div>
-	<button id="borrar">Borrar el panel</button>
+	<button @click.prevent.stop="borrar" id="borrar">Borrar el panel</button>
 	<p>Color de pincel seleccionado: <span id="estado"> {{ color ? color : "SIN SELECCIONAR" }}</span></p>
 	<div id="tablero">
-		<div v-for="i in 60" class="fila" :id="fila(i)">
-			<componente-celda v-for="j in 60" :key="j" :datos="color"></componente-celda>
+		<div v-for="(fila,posY) in matriz" class="fila" :key="posY">
+			<div @mouseover.stop="actualizaColor($event)" :color=matriz[posY][posX] v-for="(celda,posX) in fila" class="celda" :class="miracolor"> 
+			</div>
+			<!-- <componente-celda v-for="j in 60" :key="j" :datos="color"></componente-celda> -->
 			<!-- <div @mouseover.stop="actualizaColor($event)" v-for="j in 60" class='celda'>
 			</div> -->
 		</div>

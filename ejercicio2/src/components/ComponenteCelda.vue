@@ -20,7 +20,6 @@ export default {
 	actualizaColor: function (event){
         this.color=this.datos;
         }
-
     }
 }
 </script>

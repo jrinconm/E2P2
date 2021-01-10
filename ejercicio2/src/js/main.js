@@ -20,10 +20,16 @@ let app = new Vue({
 	el: '#app',	
 	data: {
 		colores: ["red","green","blue","yellow","purple","white"],
-		color: "",
 	},
 	// Para sacar botones segun tipo
 	computed: {	
+		matriz: function (){
+			let arrayBidimensional= new Array(60);
+			for (let i = 0; i < 60; i++) {
+				arrayBidimensional[i] = new Array(60);
+			}
+			return arrayBidimensional;
+		}
 	},
 	methods: {
 		eligeColor: function(colorElegido){
@@ -33,6 +39,15 @@ let app = new Vue({
 		fila: function(numero)	{
 			return "fila" + numero;
 		},
+		borrar: function(){
+
+		},
+		miracolor(x,y){
+			return matriz[x][y];
+		},
+		actualizaColor: function (event){
+			this.color=this.datos;
+			}
 
 	}
 });
