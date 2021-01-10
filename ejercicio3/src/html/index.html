@@ -15,9 +15,16 @@
 	<button @click.prevent.stop="comerfila">Comer  fila</button>
 	<!-- Boton que lanza la funcion negro para poner todo en negro--> 
 	<button @click.prevent.stop="comercolumna">Comer  columna</button>
+	<!-- Boton que lanza la funcion negro para poner todo en negro--> 
+	<button @click.prevent.stop="nocomer">¡No quiero comer más!</button>
 	<div id="tablero"> 
-		<div v-for="i in 5" class="fila">
-			<componente-onza v-for="j in 7" :key="j+5*i" :ref="'celda' + j+i" :data=color></componente-onza>
+		<div v-for="(contenido,indice) in onzas" class="fila">
+			<componente-onza 
+			v-for="(celda,posX) in contenido" 
+			:key="indice+posX" 
+			:data=color
+			:comer=onzas[indice][posX]></componente-onza>
+
 			<!-- <div @mouseover.stop="actualizaColor($event)" v-for="j in 60" class='celda'>
 			</div> -->
 		</div>

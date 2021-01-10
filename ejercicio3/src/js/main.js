@@ -11,13 +11,36 @@ let app = new Vue({
 	// Indicamos el ID del Div que contiene la APP Vue
 	el: '#app',	
 	data: {
-		color: "normal"
+		color: "normal",
+		onzas: {},
+	},
+	created: function (){
+		for (let i = 0; i < 4; i++) {
+			let arrayBidimensional2 = {};
+			for (let y = 0; y < 5; y++){
+				Vue.set(arrayBidimensional2,['celda'+y],"white")				
+			}
+			Vue.set(this.onzas,['fila'+i],arrayBidimensional2);
+		}
 	},
 	methods: {
 		comerfila: function (){
-			//Vue.set(this.$refs.this[objeto][0],"tipo","comido");
-			//Vue.set(this.$refs.objeto[0],"mostrar",true);
-			//console.log(this.$refs.celda11[0].tipo);
-		}
+			let filaComer = Math.floor(Math.random() * 4); 
+			let fila="fila"+filaComer;
+			for (let y = 0; y < 5; y++){
+				Vue.set(this.onzas[fila],"celda"+y,"comido");
+			}	
+		},
+		comercolumna: function (){
+			let filaComer = Math.floor(Math.random() * 5); 
+			let celda="celda"+filaComer;
+			for (let y = 0; y < 4; y++){
+				Vue.set(this.onzas["fila"+y],celda,"comido");
+			}	
+		},
+		nocomer: function (){
+			this.$off();
+			
+		},
 	}
 });

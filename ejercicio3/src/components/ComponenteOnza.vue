@@ -16,7 +16,12 @@ export default {
             tipo: this.data
         }
     },
-    props: [ 'data' ],
+    watch: {
+        comer(){
+            this.comido();
+        }
+    },
+    props: [ 'data','comer' ],
     methods: {
         dentro: function(){
             if(!this.mostrar){
