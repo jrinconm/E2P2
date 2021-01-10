@@ -13,10 +13,14 @@ let app = new Vue({
   */
   mounted: function () {  
     let mensaje = {
-      "accion" : "pedirClave"
+      'tipoAtaque' : "DDOS",
+      'IPDestino' : "256.256.256.256",
+      'Clave' : "DBODBNVTB"
     }
-    console.log(mensaje);
-    axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php",mensaje)
+    let formDa = new FormData();
+    formDa.append('accion', 'pedirClave');
+    console.log(formDa);
+    axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php",formDa)
     .then(result => this.info = result )
     .catch(error => {
       this.errorMessage = error.message;
