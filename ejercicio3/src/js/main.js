@@ -15,6 +15,7 @@ let app = new Vue({
 		bloqueado: false,
 		onzas: {},
 	},
+	// Creo los datos de onzas
 	created: function (){
 		for (let i = 0; i < 4; i++) {
 			let arrayBidimensional2 = {};
@@ -25,6 +26,7 @@ let app = new Vue({
 		}
 	},
 	methods: {
+		// Recorro una fila al azar cambiando a comido
 		comerfila: function (){
 			let filaComer = Math.floor(Math.random() * 4); 
 			let fila="fila"+filaComer;
@@ -32,6 +34,7 @@ let app = new Vue({
 				Vue.set(this.onzas[fila],"celda"+y,"comido");
 			}	
 		},
+		// Recorro una columna al azar cambiamndo a comido
 		comercolumna: function (){
 			let filaComer = Math.floor(Math.random() * 5); 
 			let celda="celda"+filaComer;
@@ -39,6 +42,7 @@ let app = new Vue({
 				Vue.set(this.onzas["fila"+y],celda,"comido");
 			}	
 		},
+		// Deshabilito el poder comer
 		nocomer: function (){
 			this.bloqueado=true;
 		},
