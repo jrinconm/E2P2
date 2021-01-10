@@ -13,10 +13,10 @@ let app = new Vue({
   */
   mounted: function () {  
     let mensaje = {
-      "accion" : 'pedirClave'
+      "accion" : "pedirClave"
     }
     console.log(mensaje);
-    axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php", mensaje)
+    axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php",mensaje)
     .then(result => this.info = result )
     .catch(error => {
       this.errorMessage = error.message;
