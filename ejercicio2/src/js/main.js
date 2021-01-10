@@ -8,7 +8,7 @@ let app = new Vue({
 	},
 	// Añado blancos al objeto que representa una matriz de 60x60
 	created: function (){
-		// Inicializo el array
+		// Inicializo el array si no existe
 		if(!localStorage.getItem('matriz')){
 			for (let i = 0; i < 60; i++) {
 				let arrayBidimensional2 = {};
@@ -18,14 +18,17 @@ let app = new Vue({
 				Vue.set(this.matriz,['fila'+i],arrayBidimensional2);
 			}
 		} else {
+			// Si existe lo cargo del storage
 			this.matriz = JSON.parse(localStorage.getItem('matriz'));
 			console.log(this.matriz)
 		}
 	},
 	methods: {
+		// Selecciona el color
 		eligeColor: function(colorElegido){
 			this.color=colorElegido;
 		},
+		// Cambia el color del objeto en posY posX
 		actualizaColor: function (event,posY,posX){	
 			if(this.color){
 				Vue.set(this.matriz[posY],posX,this.color);	
@@ -40,6 +43,7 @@ let app = new Vue({
 			this.rellena("black");
 			this.guarda();
 		},
+		// Recorre el objeto cambiando el color
 		rellena: function(color){
 			for(const fila in this.matriz){
 				for(const celda in this.matriz[fila]){

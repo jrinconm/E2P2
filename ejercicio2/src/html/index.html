@@ -16,13 +16,19 @@
 			<p>Haga CLICK en un color para comenzar a pintar</p>
 		
 			<div id="colores">
+				<!-- Bucle que crea los botones de colores y registrar el click de su color para asociarlo -->
 				<div v-for="color in colores" @click="eligeColor(color)" :class=color class="color"></div>
 			</div>
+	<!-- Boton que lanza la funcion borrar para poner todo en blanco--> 
 	<button @click.prevent.stop="borrar">Borrar el panel</button>
+	<!-- Boton que lanza la funcion negro para poner todo en negro--> 
 	<button @click.prevent.stop="negro">Pinta de negro</button>
+	<!-- Muestra el color elegido -->
 	<p>Color de pincel seleccionado: <span id="estado"> {{ color ? color : "SIN SELECCIONAR" }}</span></p>
 	<div id="tablero"> 
+		<!-- bucle para crear filas -->
 		<div v-for="(contenido,indice) in matriz" :key=indice class="fila">
+			<!-- bucle para crear celdas asociadas al objeto -->
 			<div @mouseover.stop="actualizaColor($event,indice,posX)" :class=celda v-for="(celda,posX) in contenido" class="celda"> 
 			</div>
 		</div>
