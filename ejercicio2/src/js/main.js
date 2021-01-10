@@ -8,28 +8,49 @@ let app = new Vue({
 	},
 	// Añado blancos al objeto que representa una matriz de 60x60
 	created: function (){
-		for (let i = 0; i < 60; i++) {
-			let arrayBidimensional2 = {};
-			for (let y = 0; y < 60; y++){
-				Vue.set(arrayBidimensional2,['celda'+y],"white")				
+		// Inicializo el array
+		if(!localStorage.getItem('matriz')){
+			for (let i = 0; i < 60; i++) {
+				let arrayBidimensional2 = {};
+				for (let y = 0; y < 60; y++){
+					Vue.set(arrayBidimensional2,['celda'+y],"white")				
+				}
+				Vue.set(this.matriz,['fila'+i],arrayBidimensional2);
 			}
-			Vue.set(this.matriz,['fila'+i],arrayBidimensional2);
+		} else {
+			this.matriz = JSON.parse(localStorage.getItem('matriz'));
+			console.log(this.matriz)
 		}
 	},
 	methods: {
 		eligeColor: function(colorElegido){
 			this.color=colorElegido;
-			console.log(this.color);
 		},
 		actualizaColor: function (event,posY,posX){	
-			Vue.set(this.matriz[posY],posX,this.color)
+			if(this.color){
+				Vue.set(this.matriz[posY],posX,this.color);	
+				this.guarda();
+			}			
 		},
 		borrar: function(){
+			this.rellena("white");
+			this.guarda();
+		},
+		negro: function(){
+			this.rellena("black");
+			this.guarda();
+		},
+		rellena: function(color){
 			for(const fila in this.matriz){
 				for(const celda in this.matriz[fila]){
-					Vue.set(this.matriz[fila],celda,"white")
+					Vue.set(this.matriz[fila],celda,color)
 				}
 			}
+			console.log(this.matriz);
+		},
+		// Guardo toda el objeto a lo bruto
+		guarda: function(){
+			localStorage.setItem('matriz', JSON.stringify(this.matriz));		
 		}
 	}
 });
