@@ -14,8 +14,8 @@
 		<!-- Contenedor de la aplicación VUE-->
 		<div class="row" id="app">
 			<div class="col-sm-12 text-center">
-				<button @click=pideclave>Pedir clave</button>
-				<button>Atacar</button>
+				<button @click="pideclave">Pedir clave</button>
+				<button :disabled="disabled" @click="ataca">Atacar</button>
 				<div class="input-group input-group-lg">
 					<div class="input-group-prepend">
 					  <span  class="input-group-text" id="inputGroup-sizing-lg">Clave:</span>
@@ -26,7 +26,7 @@
 					<div class="input-group-prepend">
 					  <span class="input-group-text" id="inputGroup-sizing-lg">Dos:</span>
 					</div>
-					<input type="text" id="dos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+					<input readonly="readonly" v-model="calculada" type="text" id="dos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 				</div>
 				<div class="input-group input-group-lg">
 					<div class="input-group-prepend">

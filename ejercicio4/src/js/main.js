@@ -1,11 +1,34 @@
+//Funcion que mueve las letras 1 a su valor
+function cifraCesar(palabra) {
+  // Si no hay palabra no hago nada
+  if(palabra){
+    // Separo las letras
+    var letras = palabra.split("");
+    // Recorro todas las letras
+    for(var i = 0; i < letras.length; i++) {
+      // Son mayusculas
+      var n = letras[i].charCodeAt() - 'A'.charCodeAt();
+      n = (n + 1) % 26; 
+      letras[i] = String.fromCharCode(n + 'A'.charCodeAt());
+    }
+    // Junto las letras de nuevo
+    return letras.join("");
+  }
+}
 // Declaramos la aplicación VUE
 let app = new Vue({
   // Indicamos el DIV donde esta nuestra APP Vue
   el: '#app',
   data: {
     usuarios: [],
+    disabled: true,
     clave: null,
     info: null
+  },
+  computed: {
+    calculada: function(){
+      return cifraCesar(this.clave)
+    }
   },
   methods: {
     pideclave: function(){
@@ -22,6 +45,10 @@ let app = new Vue({
         this.errorMessage = error.message;
         console.error("There was an error!", error);
       });
+      this.disabled=false
+    },
+    ataca: function(){
+      
     }
   },
   /*
