@@ -21,7 +21,7 @@ export default {
             this.comido();
         }
     },
-    props: [ 'data','comer' ],
+    props: [ 'data','comer','bloqueado' ],
     methods: {
         dentro: function(){
             if(!this.mostrar){
@@ -34,9 +34,11 @@ export default {
             }            
         },
         comido: function(){
+            console.log(this.bloqueado)
+            if(!this.bloqueado){
             this.mostrar=true;
             this.tipo="comido";
-
+            }
         },
 	},
 }

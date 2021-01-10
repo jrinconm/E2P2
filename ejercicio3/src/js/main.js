@@ -12,6 +12,7 @@ let app = new Vue({
 	el: '#app',	
 	data: {
 		color: "normal",
+		bloqueado: false,
 		onzas: {},
 	},
 	created: function (){
@@ -39,8 +40,7 @@ let app = new Vue({
 			}	
 		},
 		nocomer: function (){
-			this.$off();
-			
+			this.bloqueado=true;
 		},
 	}
 });
