@@ -11,38 +11,31 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 text-center">
-				<h3>Utilizando Axios</h3>
-				<h2>Consumir REST API con Vue y Axios</h2>
-				<hr>
-			</div>
-		</div>
 		<!-- Contenedor de la aplicación VUE-->
 		<div class="row" id="app">
-			<table>
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Nombre</th>
-						<th>Usuario</th>
-						<th>Email</th>
-						<th>Phone</th>
-						<th>Website</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Bucle que recorrer el contenido de usuarios, que se alimenta de la API https://vuejs.org/v2/guide/list.html#v-for-with-a-Range -->
-					<tr v-for="usuario in usuarios">
-						<td>{{ usuario.id }}</td>
-						<td>{{ usuario.name }}</td>
-						<td>{{ usuario.username }}</td>
-						<td>{{ usuario.email }}</td>
-						<td>{{ usuario.phone }}</td>
-						<td>{{ usuario.website }}</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="col-sm-12 text-center">
+				<button>Pedir clave</button>
+				<button>Atacar</button>
+				<div class="input-group input-group-lg">
+					<div class="input-group-prepend">
+					  <span class="input-group-text" id="inputGroup-sizing-lg">Clave:</span>
+					</div>
+					<input type="text" id="uno" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+				</div>
+				<div class="input-group input-group-lg">
+					<div class="input-group-prepend">
+					  <span class="input-group-text" id="inputGroup-sizing-lg">Dos:</span>
+					</div>
+					<input type="text" id="dos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+				</div>
+				<div class="input-group input-group-lg">
+					<div class="input-group-prepend">
+					  <span class="input-group-text" id="inputGroup-sizing-lg">Tres:</span>
+					</div>
+					<input type="text" id="tres" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+				</div>
+				{{ info }}
+			</div>
 		</div>
 	</div>
 
