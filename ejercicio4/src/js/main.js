@@ -22,6 +22,8 @@ let app = new Vue({
   data: {
     usuarios: [],
     disabled: true,
+    ataque: null,
+    ip: null,
     clave: null,
     info: null
   },
@@ -32,11 +34,6 @@ let app = new Vue({
   },
   methods: {
     pideclave: function(){
-      let mensaje = {
-        'tipoAtaque' : "DDOS",
-        'IPDestino' : "256.256.256.256",
-        'Clave' : "DBODBNVTB"
-      }
       let formDa = new FormData();
       formDa.append('accion', 'pedirClave');
       axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php",formDa)
@@ -45,9 +42,27 @@ let app = new Vue({
         this.errorMessage = error.message;
         console.error("There was an error!", error);
       });
-      this.disabled=false
+      this.disabled=false;
     },
     ataca: function(){
+      let AtaqueCPU = {
+        'tipoAtaque' : "DDOS",
+        'IPDestino' : "256.256.256.256",
+        'Clave' : "DBODBNVTB"
+      }
+      let formDa = new FormData();
+      formDa.append('accion', 'AtaqueCPU');
+      formDa.append('objeto', JSON.stringify(AtaqueCPU));
+      console.log(formDa)
+      axios.post("https://apuntesfpinformatica.es/DWEC/S4ND1EG0/ordenes.php",formDa)
+      .then(result => {
+        this.clave = result.data;
+        console.log(result);
+         })
+      .catch(error => {
+        this.errorMessage = error.message;
+        console.error("There was an error!", error);
+      });
       
     }
   },

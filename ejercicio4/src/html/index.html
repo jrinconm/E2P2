@@ -24,15 +24,15 @@
 				</div>
 				<div class="input-group input-group-lg">
 					<div class="input-group-prepend">
-					  <span class="input-group-text" id="inputGroup-sizing-lg">Dos:</span>
+					  <span class="input-group-text" id="inputGroup-sizing-lg">Tipo de ataque</span>
 					</div>
-					<input readonly="readonly" v-model="calculada" type="text" id="dos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+					<input v-model="ataque" type="text" id="dos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 				</div>
 				<div class="input-group input-group-lg">
 					<div class="input-group-prepend">
-					  <span class="input-group-text" id="inputGroup-sizing-lg">Tres:</span>
+					  <span class="input-group-text" id="inputGroup-sizing-lg">IP Destino</span>
 					</div>
-					<input type="text" id="tres" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+					<input v-model="ip" type="text" id="tres" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 				</div>
 				{{ info }}
 			</div>
